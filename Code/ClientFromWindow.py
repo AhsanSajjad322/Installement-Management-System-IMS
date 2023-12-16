@@ -11,13 +11,14 @@ import OperatorWindow
 
 # Establish a connection to the MySQL database
 mydb = mysql.connector.connect(
-  host="localhost",   
-  user="root",        
-  password="123456",  
-  database="InstallementManagementSystem"   
+    host="localhost",
+    user="root",
+    password="123456",
+    database="InstallementManagementSystem"
 )
 mycursor = mydb.cursor()
 
+# Get the absolute path for UI files
 path = os.path.dirname(__file__)
 path = '//'.join(path.split("\\"))
 absolutePath = path + "//UI//"
@@ -125,6 +126,23 @@ class ClientFromWindow(QtWidgets.QWidget):
         self.new.show()
         self.close()
 
+    def getCustomerByCNIC(self, CNIC):
+        """
+        Retrieve customer information based on the provided CNIC (Computerized National Identity Card) number.
+
+        Parameters:
+        - CNIC (str): The CNIC number of the customer to be retrieved.
+
+        Returns:
+        - list: A list containing tuples, where each tuple represents the information of a customer.
+                Each tuple contains the following elements:
+                (C_ID, FirstName, LastName, CNIC, PhoneNo, Address, DOB, Gender, Martial_status)
+        """
+        query = f"SELECT * FROM Customer WHERE CNIC = '{CNIC}'"
+        mycursor.execute(query)
+        data = mycursor.fetchall()
+        return data
+
     def on_save_btn(self):
         """
         Save customer information and associated details.
@@ -202,9 +220,7 @@ class ClientFromWindow(QtWidgets.QWidget):
             mydb.commit()
 
             # Fetching Customer ID from Database
-            query = f"SELECT * FROM Customer WHERE CNIC = '{CNIC}'"
-            mycursor.execute(query)
-            data = mycursor.fetchall()
+            data = self.getCustomerByCNIC(CNIC)
             C_ID = data[0][0]
 
             # Inserting Data In GuarantiedBy Table
@@ -241,9 +257,7 @@ class ClientFromWindow(QtWidgets.QWidget):
 
             # Printing Receipt At The End
             # Fetching Customer ID from Database
-            query = f"SELECT * FROM Customer WHERE CNIC = '{CNIC}'"
-            mycursor.execute(query)
-            data = mycursor.fetchall()
+            data = self.getCustomerByCNIC(CNIC)
             newC_ID = data[0][0]
 
             # Fetching AccountNo From Database
