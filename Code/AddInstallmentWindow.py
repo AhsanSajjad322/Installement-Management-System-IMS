@@ -107,10 +107,7 @@ class AddInstallmentWindow(QtWidgets.QWidget):
 
         try:
             # Updating Fields
-            query = f"SELECT CONCAT(Customer.FirstName,' ', Customer.LastName), Account.ProductName, Payment.TotalAmount, Balance.AmountRemaining, InstallementRecord.RemainingInstallements, InstallementRecord.TotalInstallements, Payment.MonthlyPayable FROM Account JOIN Customer USING (C_ID) JOIN Payment USING(AccountNo) JOIN Product USING(ProductName) JOIN Balance USING(AccountNo) JOIN InstallementRecord USING (AccountNo) WHERE AccountNo = {AccountNo}"
-            
-            mycursor.execute(query)
-            data = mycursor.fetchall()
+            data = self.getCustomer(AccountNo)
 
             TotalInstallements = int(data[0][5])
             paid = (int(data[0][5])) - (int(data[0][4]))
@@ -123,13 +120,57 @@ class AddInstallmentWindow(QtWidgets.QWidget):
             self.label_15.setText(str(TotalInstallements))
             self.label_18.setText(str(paid))
 
-            query = f"SELECT InstallementNo, ReceivedInstallementDate, InstallementAmount FROM Installement WHERE AccountNo = {AccountNo} "
-            mycursor.execute(query)
-            data = mycursor.fetchall()
+            data = self.getInstallementDetials(AccountNo)
+            print(data)
             self.tableWidget.setRowCount(0)
             self.showTable(data)
         except Exception as e:
             print(e)
+
+    def getInstallementDetials(self, AccountNo):
+        """
+        Get installment details for a given account number.
+
+        Parameters:
+        - AccountNo (int): The account number.
+
+        Returns:
+        - list: A list of tuples containing installment details.
+        """
+        query = f"SELECT InstallementNo, ReceivedInstallementDate, InstallementAmount FROM Installement WHERE AccountNo = {AccountNo} "
+        mycursor.execute(query)
+        data = mycursor.fetchall()
+        return data
+
+    def getCustomer(self, AccountNo):
+        """
+        Get customer details for a given account number.
+
+        Parameters:
+        - AccountNo (int): The account number.
+
+        Returns:
+        - list: A list of tuples containing customer details.
+        """
+        query = f"SELECT CONCAT(Customer.FirstName,' ', Customer.LastName), Account.ProductName, Payment.TotalAmount, Balance.AmountRemaining, InstallementRecord.RemainingInstallements, InstallementRecord.TotalInstallements, Payment.MonthlyPayable FROM Account JOIN Customer USING (C_ID) JOIN Payment USING(AccountNo) JOIN Product USING(ProductName) JOIN Balance USING(AccountNo) JOIN InstallementRecord USING (AccountNo) WHERE AccountNo = {AccountNo}"
+        mycursor.execute(query)
+        data = mycursor.fetchall()
+        return data
+
+    def getRemainingNoOfInstallements(self, AccountNo):
+        """
+        Get the remaining number of installments for a given account number.
+
+        Parameters:
+        - AccountNo (int): The account number.
+
+        Returns:
+        - list: A list of tuples containing remaining installments.
+        """
+        query = f"SELECT RemainingInstallements FROM InstallementRecord WHERE AccountNo = {AccountNo}"
+        mycursor.execute(query)
+        data = mycursor.fetchall()
+        return data
 
     def on_add_Installement(self):
         """
@@ -151,9 +192,7 @@ class AddInstallmentWindow(QtWidgets.QWidget):
             mydb.commit()
 
             # Fetching Remaining Installements From InstallementRecord
-            query = f"SELECT RemainingInstallements FROM InstallementRecord WHERE AccountNo = {AccountNo}"
-            mycursor.execute(query)
-            data = mycursor.fetchall()
+            data = self.getRemainingNoOfInstallements(AccountNo)
             remNoOfInst = data[0][0]
             status = "Dead"
             if remNoOfInst == 0:
