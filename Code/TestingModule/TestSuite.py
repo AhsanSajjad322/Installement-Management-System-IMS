@@ -9,6 +9,7 @@ from AddInstallmentWindow import AddInstallmentWindow
 from ClientFromWindow import ClientFromWindow
 from ViewCustomerWindow import ViewCustomerWindow
 from ViewProductWindow import ViewProductWindow
+from ViewRecordWindow import ViewRecordWindow
 from ViewEmployeeWindow import ViewEmployeeWindow
 
 #Testing ViewEmployeeWindow
@@ -75,6 +76,53 @@ class TestViewEmployeeWindow(unittest.TestCase):
         allOperators = ViewEmployeeWindow.getAllOperatorsByDesignation(self, "Operator")
         self.assertEqual(allOperators, self.allOperators)
 
+#Testing ViewRecordWindow
+class TestViewRecordWindow(unittest.TestCase):
+    """
+    Test case class for testing the methods of the ViewRecordWindow class.
+
+    Testing Strategy:
+    - Test the getNoOfAccountsCreatedInMonth method to ensure it retrieves the correct number of accounts created in a specific month.
+    - Test the getNoOfAccountsClearedInMonth method to ensure it retrieves the correct number of accounts cleared in a specific month.
+    - Test the getNoOfAccountsRecoveredInMonth method to ensure it retrieves the correct number of accounts recovered in a specific month.
+    - Test the getNoOfAccountsNotRecoveredInMonth method to ensure it retrieves the correct number of accounts not recovered in a specific month.
+    - Test the getNoOfProductsSoldInMonth method to ensure it retrieves the correct number of products sold in a specific month.
+
+    Test Cases:
+    - testGetNoOfAccountsCreatedInSeptember: Test the getNoOfAccountsCreatedInMonth method for the month of September.
+    - testGetNoOfAccountsClearedInSeptember: Test the getNoOfAccountsClearedInMonth method for the month of September.
+    - testGetNoOfAccountsRecoveredInSeptember: Test the getNoOfAccountsRecoveredInMonth method for the month of September.
+    - testGetNoOfAccountsNotRecoveredInSeptember: Test the getNoOfAccountsNotRecoveredInMonth method for the month of September.
+    - testGetNoOfProductsSoldInSeptember: Test the getNoOfProductsSoldInMonth method for the month of September.
+    """
+    def setUp(self):
+         # Test data for the ViewRecordWindow class in the month of September
+        self.noOfNewAccountsCreatedInSep = 1
+        self.noOfAccountsClearedInSep = 0
+        self.noOfAccountsRecoveredInSep = 4
+        self.noOfAccountsNotRecoveredInSep = 16
+        self.noOfProductsSoldInSep = 1
+
+    def testGetNoOfAccountsCreatedInSeptember(self):
+        accountsCreatedInSeptember = ViewRecordWindow.getNoOfAccountsCreatedInMonth(self, "09")
+        self.assertEqual(accountsCreatedInSeptember, self.noOfNewAccountsCreatedInSep)
+
+    def testGetNoOfAccountsClearedInSeptember(self):
+        accountsClearedInSeptember = ViewRecordWindow.getNoOfAccountsClearedInMonth(self, "09")
+        self.assertEqual(accountsClearedInSeptember, self.noOfAccountsClearedInSep)
+    
+    def testGetNoOfAccountsRecoveredInSeptember(self):
+        accountsRecoveredInSeptember = ViewRecordWindow.getNoOfAccountsRecoveredInMonth(self, "09")
+        self.assertEqual(accountsRecoveredInSeptember, self.noOfAccountsRecoveredInSep)
+
+    def testGetNoOfAccountsNotRecoveredInSeptember(self):
+        accountsNotRecoveredInSeptember = ViewRecordWindow.getNoOfAccountsNotRecoveredInMonth(self, "09")
+        self.assertEqual(accountsNotRecoveredInSeptember, self.noOfAccountsNotRecoveredInSep)
+
+    def testGetNoOfProductsSoldInSeptember(self):
+        productsSoldInSeptember = ViewRecordWindow.getNoOfProductsSoldInMonth(self, "09")
+        self.assertEqual(productsSoldInSeptember, self.noOfProductsSoldInSep)
+        
 # Tesing ViewProductWindow
 class TestViewProductWindow(unittest.TestCase):
     """
