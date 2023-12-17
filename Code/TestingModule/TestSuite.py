@@ -8,6 +8,71 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from AddInstallmentWindow import AddInstallmentWindow
 from ClientFromWindow import ClientFromWindow
 from ViewCustomerWindow import ViewCustomerWindow
+from ViewEmployeeWindow import ViewEmployeeWindow
+
+#Testing ViewEmployeeWindow
+class TestViewEmployeeWindow(unittest.TestCase):
+    """
+    Test case class for testing the methods of the ViewEmployeeWindow class.
+
+    Testing Strategy:
+    - Test the getTotalNoOfEmployees method to ensure it retrieves the correct total number of employees.
+    - Test the getTotalNoOfRecoveryCollectors method to ensure it retrieves the correct total number of recovery collectors.
+    - Test the getTotalNoOfOperators method to ensure it retrieves the correct total number of operators.
+    - Test the getAllEmployees method to ensure it retrieves all employees.
+    - Test the getEmployeeByID method to ensure it retrieves a specific employee by ID.
+    - Test the getAllRecoveryCollectorsByDesignation method to ensure it retrieves all recovery collectors by designation.
+    - Test the getAllOperatorsByDesignation method to ensure it retrieves all operators by designation.
+
+    Test Cases:
+    - testGetTotalNoOfEmployees: Test the getTotalNoOfEmployees method.
+    - testGetTotalNoOfRecoveryCollectors: Test the getTotalNoOfRecoveryCollectors method.
+    - testGetTotalNoOfOperators: Test the getTotalNoOfOperators method.
+    - testGetAllEmployees: Test the getAllEmployees method.
+    - testGetEmployeeOfID100: Test the getEmployeeByID method for the employee with ID 100.
+    - testGetAllRecoveryCollectorsByDesignation: Test the getAllRecoveryCollectorsByDesignation method for the designation 'Recover_Collector'.
+    - testGetAllOperatorsByDesignation: Test the getAllOperatorsByDesignation method for the designation 'Operator'.
+    """
+    def setUp(self):
+        # Test data for the ViewEmployeeWindow class
+        self.totalNoOfEmployees = '3'
+        self.totalNoOfRecoveryCollectors = '2'
+        self.totalNoOfOperators = '1'
+        self.allEmployees = [(100, 10, 'Taimoor Sardar', '3840265268502', 'Sardar Sb', '03237008382', 'Sargodha', '2000-09-12', 'M', 'Recover_Collector', 8, 40000, 'Single'), 
+                             (101, 10, 'Taimoor Ikram', '3746583748579', 'Ikram', '03738977665', 'NUST', '2000-12-09', 'M', 'Recover_Collector', 8, 20000, 'Married'), 
+                             (102, 10, 'Ahsan Sajjad', '3894976898789', 'Sajjad', '03648799889', 'NUST', '2000-09-09', 'M', 'Operator', 8, 40000, 'Married')]
+        self.allRecoveryCollectors = [(100, 10, 'Taimoor Sardar', '3840265268502', 'Sardar Sb', '03237008382', 'Sargodha', '2000-09-12', 'M', 'Recover_Collector', 8, 40000, 'Single'), 
+                                      (101, 10, 'Taimoor Ikram', '3746583748579', 'Ikram', '03738977665', 'NUST', '2000-12-09', 'M', 'Recover_Collector', 8, 20000, 'Married')]
+        self.allOperators = [(102, 10, 'Ahsan', 'Sajjad', '3894976898789', 40000, 8, 'NUST', '2000-09-09', 'M', 'Sajjad', 'Operator', '03648799889', 'Married')]
+        self.employeeOfID100 = [(100, 10, 'Taimoor', 'Sardar', '3840265268502', 40000, 8, 'Sargodha', '2000-09-12', 'M', 'Sardar Sb', 'Recover_Collector', '03237008382', 'Single')]
+
+    def testGetTotalNoOfEmployees(self):
+        totalNoOfEmployees = ViewEmployeeWindow.getTotalNoOfEmployees(self)
+        self.assertEqual(totalNoOfEmployees, self.totalNoOfEmployees)
+
+    def testGetTotalNoOfRecoveryCollectors(self):
+        totalNoOfRecoveryCollectors = ViewEmployeeWindow.getTotalNoOfRecoveryCollectors(self)
+        self.assertEqual(totalNoOfRecoveryCollectors, self.totalNoOfRecoveryCollectors)
+
+    def testGetTotalNoOfOperators(self):
+        totalNoOfOperators = ViewEmployeeWindow.getTotalNoOfOperators(self)
+        self.assertEqual(totalNoOfOperators, self.totalNoOfOperators)
+
+    def testGetAllEmployees(self):
+        allEmployees = ViewEmployeeWindow.getAllEmployees(self)
+        self.assertEqual(allEmployees, self.allEmployees) 
+    
+    def testGetEmployeeOfID100(self):
+        employeeOfID100 = ViewEmployeeWindow.getEmployeeByID(self, 100)
+        self.assertEqual(employeeOfID100, self.employeeOfID100)
+
+    def testGetAllRecoveryCollectorsByDesignation(self):
+        allRecoveryCollectors = ViewEmployeeWindow.getAllRecoveryCollectorsByDesignation(self, "Recover_Collector")
+        self.assertEqual(allRecoveryCollectors, self.allRecoveryCollectors)
+
+    def testGetAllOperatorsByDesignation(self):
+        allOperators = ViewEmployeeWindow.getAllOperatorsByDesignation(self, "Operator")
+        self.assertEqual(allOperators, self.allOperators)
 
 # Testing AddInstallementWindow File
 class TestAddInstallement(unittest.TestCase):
