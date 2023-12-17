@@ -8,6 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from AddInstallmentWindow import AddInstallmentWindow
 from ClientFromWindow import ClientFromWindow
 from ViewCustomerWindow import ViewCustomerWindow
+from ViewProductWindow import ViewProductWindow
 from ViewEmployeeWindow import ViewEmployeeWindow
 
 #Testing ViewEmployeeWindow
@@ -74,6 +75,35 @@ class TestViewEmployeeWindow(unittest.TestCase):
         allOperators = ViewEmployeeWindow.getAllOperatorsByDesignation(self, "Operator")
         self.assertEqual(allOperators, self.allOperators)
 
+# Tesing ViewProductWindow
+class TestViewProductWindow(unittest.TestCase):
+    """
+    Test case class for testing the methods of the ViewProductWindow class.
+
+    Testing Strategy:
+    - Test the getTotalNoOfProducts method to ensure it retrieves the correct total number of products.
+    - Test the getAllProducts method to ensure it retrieves all products correctly.
+
+    Test Cases:
+    - testGetTotalNoOfProducts: Test the getTotalNoOfProducts method.
+    - testGetAllProducts: Test the getAllProducts method.
+    """
+    def setUp(self):
+        # Test data for the ViewProductWindow class
+        self.totalNoOfProducts = 4
+        self.allProducts = [('Air Cooler', 'Electronics', 15000), 
+                            ('Computer', 'Electronics', 105000), 
+                            ('Fan', 'Electronics', 10000), 
+                            ('MotorBike', 'Electronics', 50000)]
+        
+    def testGetTotalNoOfProducts(self):
+        totalNoOfProducts = ViewProductWindow.getTotalNoOfProducts(self)
+        self.assertEqual(totalNoOfProducts, self.totalNoOfProducts)
+
+    def testGetAllProducts(self):
+        allProducts = ViewProductWindow.getAllProducts(self)
+        self.assertEqual(allProducts, self.allProducts)
+        
 # Testing AddInstallementWindow File
 class TestAddInstallement(unittest.TestCase):
     """
