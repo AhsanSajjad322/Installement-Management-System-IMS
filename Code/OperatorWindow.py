@@ -1,3 +1,4 @@
+# Import necessary modules and classes from PyQt5
 from PyQt5 import QtWidgets, uic
 import mysql.connector
 from PyQt5.QtWidgets import * 
@@ -5,7 +6,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import * 
 import os
 
-# Importing required classes
+# Import required classes from other modules
 import AddInstallmentWindow
 import ClientFromWindow
 import ExistedCustomer
@@ -35,9 +36,13 @@ class OperatorWindow(QtWidgets.QWidget):
         - parent: Parent widget (default is None).
         """
         super().__init__()
+        # Load the UI file for the OperatorWindow
         uic.loadUi(absolutePath + "opretorWindow.ui", self)
+        # Set window title
         self.setWindowTitle("Operator Window")
+        # Store the parent widget
         self.parent = parent
+        # Connect signals to slots
         self.addNewCustomer.clicked.connect(self.on_customerSelect) 
         self.addInstallment.clicked.connect(self.on_addInstallment)
         self.signOut_btn.clicked.connect(self.on_signout_btn)
@@ -52,8 +57,10 @@ class OperatorWindow(QtWidgets.QWidget):
         Returns:
         - None
         """
+        # Create a new instance of the LoginWindow and show it
         self.new = LoginWindow.LoginWindow()
         self.new.show()
+        # Close the current window
         self.close()
 
     def on_customerSelect(self):
@@ -66,6 +73,7 @@ class OperatorWindow(QtWidgets.QWidget):
         Returns:
         - None
         """
+        # Check the selected option in the combo box
         if self.comboCustomer.currentText() == 'Existing Customer':
             self.existingCustomer()
         elif self.comboCustomer.currentText() == 'New Customer':
@@ -81,8 +89,10 @@ class OperatorWindow(QtWidgets.QWidget):
         Returns:
         - None
         """
+        # Create a new instance of the ClientFromWindow and show it
         self.new = ClientFromWindow.ClientFromWindow()
         self.new.show()
+        # Close the current window
         self.close()
 
     def existingCustomer(self):
@@ -95,8 +105,10 @@ class OperatorWindow(QtWidgets.QWidget):
         Returns:
         - None
         """
+        # Create a new instance of the ExistedCustomer window and show it
         self.new = ExistedCustomer.ExistedCustomer()
         self.new.show()
+        # Close the current window
         self.close()
 
     def on_addInstallment(self):
@@ -109,6 +121,8 @@ class OperatorWindow(QtWidgets.QWidget):
         Returns:
         - None
         """
+        # Create a new instance of the AddInstallmentWindow and show it
         self.new = AddInstallmentWindow.AddInstallmentWindow()
         self.new.show()
+        # Close the current window
         self.close()

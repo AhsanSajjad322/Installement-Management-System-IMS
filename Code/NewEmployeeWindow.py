@@ -1,11 +1,11 @@
+# Import necessary modules and classes from PyQt5
 from PyQt5 import QtWidgets, uic
-import mysql.connector
 from PyQt5.QtWidgets import * 
 from PyQt5.QtGui import * 
 from PyQt5.QtCore import * 
 import os
 
-# Importing required classes
+# Import ManagerWindow class from the ManagerWindow module
 import ManagerWindow
 
 # Establish a connection to the MySQL database
@@ -22,8 +22,10 @@ path = os.path.dirname(__file__)
 path = '//'.join(path.split("\\"))
 absolutePath = path + "//UI//"
 
+# Variable to store the name of the logged-in manager
 manager_name = ""
 
+# Class definition for the NewEmployeeWindow
 class NewEmployeeWindow(QtWidgets.QWidget):
     def __init__(self, parent=None):
         """
@@ -33,9 +35,13 @@ class NewEmployeeWindow(QtWidgets.QWidget):
         - parent: Parent widget (default is None).
         """
         super().__init__()
+        # Load the UI file for adding a new employee
         uic.loadUi(absolutePath + "addEmployee.ui", self)
+        # Set window title
         self.setWindowTitle("Add Employee")
+        # Store the parent widget
         self.parent = parent
+        # Connect signals to slots
         self.prev_btn.clicked.connect(self.on_prev)
         self.add_btn.clicked.connect(self.on_add)
 
@@ -51,6 +57,7 @@ class NewEmployeeWindow(QtWidgets.QWidget):
         """
         mId = 0
         try:
+            # Retrieve Manager ID from the database using the manager's name
             query = "SELECT M_ID FROM manager WHERE Name = '{}'".format(manager_name)
             mycursor.execute(query)
             mId = mycursor.fetchall()[0][0]
@@ -69,8 +76,10 @@ class NewEmployeeWindow(QtWidgets.QWidget):
         Returns:
         - None
         """
+        # Create a new instance of the ManagerWindow and show it
         self.new = ManagerWindow.ManagerWindow()
         self.new.show()
+        # Close the current window
         self.close()
 
     def on_add(self):
@@ -83,6 +92,7 @@ class NewEmployeeWindow(QtWidgets.QWidget):
         Returns:
         - None
         """
+        # Retrieve data from input fields
         fn = self.first_name.text()
         ln = self.last_name.text()
         cin = self.cnic.text()
@@ -98,6 +108,7 @@ class NewEmployeeWindow(QtWidgets.QWidget):
         mid = self.mId()
         print(fn, ln, cin, Fn, dob, gen, phone, desig, mart, addr, work, salary, mid)
         try:
+            # Insert employee data into the database
             mycursor.execute('''
             INSERT INTO employee(M_ID,FirstName,LastName,CNIC,Salary,WorkHours,Address,DOB,Gender,FatherName,
             Designation,PhoneNo,Martial_status) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
