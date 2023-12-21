@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>loginWindow</class>
+ <widget class="QWidget" name="loginWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>758</width>
+    <height>571</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+font-family: century gothic;
+font-size: 24px;
+background-color: white;
+}
+
+#loginWindow {
+background-color:rgb(70, 97, 132);
+background-repeat: no-repeat; 
+background-position: center;
+}
+
+QFrame{
+background: #333;
+}
+
+QPushButton{
+background: black;
+border-radius: 10px;
+color: white
+}
+
+QPushButton:hover{
+color: red;
+background-color: #fc836e;
+cursor:pointer
+
+}
+</string>
+  </property>
+  <property name="windowFilePath">
+   <string/>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>80</y>
+     <width>381</width>
+     <height>411</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(40, 40, 40); /* Dark Grayish */
+background-color: rgb(20, 20, 20); /* Darker Grayish */
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255)); /* Black to White Gradient */
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0.494318 rgba(10, 10, 10, 255), stop:1 rgba(255, 255, 255, 255)); /* Dark Grayish to White Gradient */
+background-color: rgb(80, 80, 80); /* Darker Grayish */
+background-color: rgb(60, 60, 60); /* Even Darker Grayish */
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(60, 60, 60, 255), stop:1 rgba(255, 255, 255, 255)); /* Dark Grayish to Whitish Gradient */
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0.686275 rgba(80, 80, 80, 255), stop:1 rgba(255, 255, 255, 255)); /* Dark Grayish to Whitish Gradient */
+
+border-radius: 20px;
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>40</y>
+      <width>161</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font-weight:900;
+font-size: 30px;</string>
+    </property>
+    <property name="text">
+     <string>    LOGIN</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>350</y>
+      <width>261</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font-weight:900;
+font-size: 24px;</string>
+    </property>
+    <property name="text">
+     <string>L O G I N</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="user_name">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>150</y>
+      <width>321</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 9pt &quot;Arial&quot;;
+font-size: 20px;
+background: white;
+border: none;
+color: #717072;
+border-bottom: 1px solid rgb(119, 255, 173);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>User Name</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="password">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>240</y>
+      <width>321</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 9pt &quot;Arial&quot;;
+font-size: 20px;
+background: white;
+border: none;
+color: #717072;
+border-bottom: 1px solid rgb(119, 255, 173);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>Password</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="managerCheck">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>300</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 9pt &quot;Arial&quot;;
+font-size: 15px;
+color: white;
+background:transparent</string>
+    </property>
+    <property name="text">
+     <string>Are you a manager?</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>50</y>
+     <width>61</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 48, 70);
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../assets/account.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>30</y>
+     <width>101</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 48, 70);
+border-radius: 50px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="backImage">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>761</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white;background-color: rgb(0, 85, 127);
+background-color: rgb(0, 62, 90);
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(38, 30, 227, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0.494318 rgba(52, 97, 129, 255), stop:1 rgba(255, 255, 255, 255));
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../assets/Background.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>510</y>
+     <width>231</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 15px;
+color: red;
+background:  transparent</string>
+   </property>
+   <property name="text">
+    <string>Invalid login, please try again</string>
+   </property>
+  </widget>
+  <zorder>backImage</zorder>
+  <zorder>frame</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_4</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
