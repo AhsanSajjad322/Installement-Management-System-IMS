@@ -76,6 +76,34 @@ class TestViewEmployeeWindow(unittest.TestCase):
         allOperators = ViewEmployeeWindow.getAllOperatorsByDesignation(self, "Operator")
         self.assertEqual(allOperators, self.allOperators)
 
+# Testing ExistedCustomer File
+class TestExistedCustomer(unittest.TestCase):
+    """
+    Test case class for testing the methods of the ExistedCustomer class.
+
+    Testing Strategy:
+    - Test the getDetailedCustomerByCNIC method with known CNIC.
+    - Test the getCustomerByCNIC method with known CNIC.
+
+    Test Cases:
+    - testDetailedCustomerByCNIC: Test the getDetailedCustomerByCNIC method for a specific CNIC.
+    - testGetCustomerByCNIC: Test the getCustomerByCNIC method for a specific CNIC.
+    """
+    def setUp(self):
+        # Test data for the customer with CNIC "123456789"
+        self.detailedCustomer = [('Ali Akbar', '03239008674', 50000, 'Akbar', 'Single', 'Fan', 10000, 'Active', 'Saad Niazi')]
+        self.detailedCustomerCNIC = "123456789"
+        self.customer = [(104, 'Ali', 'Akbar', 'Attar Hostel', '123456789', '03239008674', '03485998674', 50000, 'Akbar', 'Single', 'M', '20-09-2000', 'NUST')]
+    
+    def testDetialedCustomerByCNIC(self):
+        detailedCustomerByCNIC = ExistedCustomer.getDetailedCustomerByCNIC(self, self.detailedCustomerCNIC)
+        self.assertEqual(detailedCustomerByCNIC, self.detailedCustomer)
+    
+    def testGetCustomerByCNIC(self):
+        customerByCNIC = ExistedCustomer.getCustomerByCNIC(self, self.detailedCustomerCNIC)
+        self.assertEqual(customerByCNIC, self.customer)
+
+
 #Testing ViewRecordWindow
 class TestViewRecordWindow(unittest.TestCase):
     """
@@ -123,6 +151,33 @@ class TestViewRecordWindow(unittest.TestCase):
         productsSoldInSeptember = ViewRecordWindow.getNoOfProductsSoldInMonth(self, "09")
         self.assertEqual(productsSoldInSeptember, self.noOfProductsSoldInSep)
         
+# Testing LoginWindow File
+class TestLoginWindow(unittest.TestCase):
+    """
+    Test case class for testing the methods of the LoginWindow class.
+
+    Testing Strategy:
+    - Test the getManagerAccounts method to ensure it retrieves manager accounts correctly.
+    - Test the getOperatorAccounts method to ensure it retrieves operator accounts correctly.
+
+    Test Cases:
+    - testGetManagerAccounts: Test the getManagerAccounts method.
+    - testGetOperatorAccounts: Test the getOperatorAccounts method.
+    """
+    def setUp(self):
+        # Test data for manager and operator accounts
+        self.managerAccounts = [('yameen12', 'Yameen@123')]
+        self.operatorAccounts = [('Ahsan', '1234')]
+    
+    def testGetManagerAccounts(self):
+        managerAccounts = LoginWindow.getManagerAccounts(self)
+        self.assertEqual(managerAccounts, self.managerAccounts)
+    
+    def testGetOperatorAccounts(self):
+        operatorAccounts = LoginWindow.getOperatorAccounts(self)
+        self.assertEqual(operatorAccounts, self.operatorAccounts)
+
+
 # Tesing ViewProductWindow
 class TestViewProductWindow(unittest.TestCase):
     """
