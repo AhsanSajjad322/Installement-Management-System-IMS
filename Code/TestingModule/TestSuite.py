@@ -11,6 +11,9 @@ from ViewCustomerWindow import ViewCustomerWindow
 from ViewProductWindow import ViewProductWindow
 from ViewRecordWindow import ViewRecordWindow
 from ViewEmployeeWindow import ViewEmployeeWindow
+from ExistedCustomer import ExistedCustomer
+from LoginWindow import LoginWindow
+
 
 #Testing ViewEmployeeWindow
 class TestViewEmployeeWindow(unittest.TestCase):
