@@ -22,8 +22,6 @@ mycursor = mydb.cursor()
 path = os.path.dirname(__file__)
 path = '//'.join(path.split("\\"))
 absolutePath = path + "//UI//"
-
-# Initialize a variable to store the manager's name
 manager_name = ""
 
 # Define the main window class
@@ -37,11 +35,10 @@ class MainWindow(QtWidgets.QMainWindow):
         - kwargs: Arbitrary keyword arguments.
         """
         super().__init__(*args, **kwargs)
-        # Load the UI file for the main window
+
         uic.loadUi(absolutePath + "mainwindow.ui", self)
         self.setWindowTitle("Installment management system")
 
-        # Connect the button click signal to the login function
         self.pushButton2.clicked.connect(self.loginfunction)
 
     def loginfunction(self):
@@ -51,20 +48,18 @@ class MainWindow(QtWidgets.QMainWindow):
         Returns:
         - None
         """
-        # Create an instance of the LoginWindow class
+
         self.new = LoginWindow.LoginWindow()
-        # Show the login window
         self.new.show()
-        # Close the main window
         self.close()
 
 # Entry point for the application
 if __name__ == "__main__":
-    # Create a PyQt application instance
+  
     app = QtWidgets.QApplication(sys.argv)
 
     window = MainWindow()
     window.show()
 
-    # Start the application event loop
+
     app.exec_()

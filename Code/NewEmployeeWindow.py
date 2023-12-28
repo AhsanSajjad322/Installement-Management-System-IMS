@@ -36,13 +36,10 @@ class NewEmployeeWindow(QtWidgets.QWidget):
         - parent: Parent widget (default is None).
         """
         super().__init__()
-        # Load the UI file for adding a new employee
+    
         uic.loadUi(absolutePath + "addEmployee.ui", self)
-        # Set window title
         self.setWindowTitle("Add Employee")
-        # Store the parent widget
         self.parent = parent
-        # Connect signals to slots
         self.prev_btn.clicked.connect(self.on_prev)
         self.add_btn.clicked.connect(self.on_add)
 
