@@ -311,6 +311,7 @@ font-size: 17px</string>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(83, 83, 83);
 font: 700 9pt &quot;Segoe UI&quot;;
+color: white;
 
 background-color: rgb(63, 63, 63);</string>
       </property>

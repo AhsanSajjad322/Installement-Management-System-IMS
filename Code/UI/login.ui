@@ -57,15 +57,7 @@ cursor:pointer
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(40, 40, 40); /* Dark Grayish */
-background-color: rgb(20, 20, 20); /* Darker Grayish */
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255)); /* Black to White Gradient */
-background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0.494318 rgba(10, 10, 10, 255), stop:1 rgba(255, 255, 255, 255)); /* Dark Grayish to White Gradient */
-background-color: rgb(80, 80, 80); /* Darker Grayish */
-background-color: rgb(60, 60, 60); /* Even Darker Grayish */
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(60, 60, 60, 255), stop:1 rgba(255, 255, 255, 255)); /* Dark Grayish to Whitish Gradient */
-background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0.686275 rgba(80, 80, 80, 255), stop:1 rgba(255, 255, 255, 255)); /* Dark Grayish to Whitish Gradient */
-
+    <string notr="true">background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(40, 40, 40, 255), stop:1 rgba(0, 92, 230, 255)); /* Dark Grayish to Bluish Gradient */
 border-radius: 20px;
 </string>
    </property>
@@ -183,6 +175,26 @@ background:transparent</string>
      <string>Are you a manager?</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>320</y>
+      <width>361</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+font-size: 20px;
+color: red;
+background:  transparent;
+font-weight: 700;</string>
+    </property>
+    <property name="text">
+     <string>Invalid credentials, please try again</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
@@ -194,7 +206,7 @@ background:transparent</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 48, 70);
+    <string notr="true">background-color: white;
 </string>
    </property>
    <property name="text">
@@ -245,35 +257,16 @@ background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../assets/Background.jpg</pixmap>
+    <pixmap>../assets/background-1.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>510</y>
-     <width>231</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font-size: 15px;
-color: red;
-background:  transparent</string>
-   </property>
-   <property name="text">
-    <string>Invalid login, please try again</string>
    </property>
   </widget>
   <zorder>backImage</zorder>
   <zorder>frame</zorder>
   <zorder>label_3</zorder>
   <zorder>label_2</zorder>
-  <zorder>label_4</zorder>
  </widget>
  <resources/>
  <connections/>

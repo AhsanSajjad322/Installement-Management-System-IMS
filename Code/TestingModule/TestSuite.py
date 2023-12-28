@@ -169,7 +169,7 @@ class TestLoginWindow(unittest.TestCase):
     """
     def setUp(self):
         # Test data for manager and operator accounts
-        self.managerAccounts = [('yameen12', 'Yameen@123')]
+        self.managerAccounts = [('yameen12', 'Yameen@123'),  ('Shumail', '1234')]
         self.operatorAccounts = [('Ahsan', '1234')]
     
     def testGetManagerAccounts(self):

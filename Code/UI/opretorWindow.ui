@@ -82,7 +82,7 @@ color: white
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>C:/Users/FAAAST 4/Desktop/assets/Background.jpg</pixmap>
+    <pixmap>C:/Users/FAAAST 4/Desktop/assets/background-1.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

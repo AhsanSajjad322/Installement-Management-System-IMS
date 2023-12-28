@@ -85,7 +85,7 @@ color: white;</string>
    <property name="styleSheet">
     <string notr="true">font: 700 9pt &quot;Arial&quot;;
 font-size: 10px;
-color: black;
+color: white;
 background-color: rgb(47, 107, 100);</string>
    </property>
    <property name="text">
@@ -145,7 +145,7 @@ background-color: rgb(47, 107, 100);</string>
    <property name="styleSheet">
     <string notr="true">font: 700 9pt &quot;Arial&quot;;
 font-size: 10px;
-color: black;
+color: white;
 background-color: rgb(47, 107, 100);</string>
    </property>
    <property name="text">
@@ -164,6 +164,7 @@ background-color: rgb(47, 107, 100);</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(83, 83, 83);
 font: 700 9pt &quot;Segoe UI&quot;;
+color: white;
 
 background-color: rgb(63, 63, 63);</string>
    </property>
@@ -356,7 +357,7 @@ font-size: 25px</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>D:/NUST/project/assets/IMS_logo.png</pixmap>
+    <pixmap>../../../../../../../NUST/project/assets/IMS_logo.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

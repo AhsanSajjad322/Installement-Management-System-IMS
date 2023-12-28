@@ -62,6 +62,7 @@ color: white;</string>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(83, 83, 83);
 font: 700 9pt &quot;Segoe UI&quot;;
+color: white;
 background-color: rgb(63, 63, 63);</string>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
@@ -422,7 +423,7 @@ color: white;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../../../../../../../3RD SEMESTER/DatabaseSystems/Lectures/background-2.jpg</pixmap>
+      <pixmap>../../../../../../../3RD SEMESTER/DatabaseSystems/Lectures/background-2.jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>

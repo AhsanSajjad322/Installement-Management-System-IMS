@@ -81,6 +81,7 @@ color: black</string>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(83, 83, 83);
 font: 700 9pt &quot;Segoe UI&quot;;
+color: white;
 
 background-color: rgb(63, 63, 63);</string>
      </property>
@@ -177,7 +178,7 @@ color: black;</string>
       <rect>
        <x>350</x>
        <y>30</y>
-       <width>151</width>
+       <width>171</width>
        <height>41</height>
       </rect>
      </property>
